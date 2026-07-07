@@ -4,10 +4,9 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles, Building2, Phone, FileText, TrendingUp, CheckCircle2, XCircle,
-  RefreshCw, Shield, ArrowRight, ChevronRight, GitCompare, Plus, Search, Filter, X, Eye, Pencil, Trash2
+  RefreshCw, ArrowRight, ChevronRight, GitCompare, Plus, Search, Filter, X, Eye, Pencil, Trash2
 } from "lucide-react";
 import { toast } from "sonner";
-import Card from "@/components/ui/Card";
 import AppLayout from "@/components/layout/AppLayout";
 import DataTable, { type Column } from "@/components/ui/DataTable";
 import { PageSkeleton } from "@/components/ui/Skeleton";

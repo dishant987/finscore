@@ -9,7 +9,7 @@ import {
   PieChart, Pie, Cell, Legend, LabelList,
   AreaChart, Area, CartesianGrid
 } from "recharts";
-import { Plus, TrendingDown, Users, Shield, Building2, Activity, ArrowRight, Sparkles, Clock, AlertTriangle, CheckCircle2, TrendingUp } from "lucide-react";
+import { Plus, TrendingDown, Users, Shield, Building2, Activity, ArrowRight, Sparkles, AlertTriangle, CheckCircle2, TrendingUp } from "lucide-react";
 import { useUIStore } from "@/store/ui";
 import { motion } from "framer-motion";
 import { PageSkeleton } from "@/components/ui/Skeleton";

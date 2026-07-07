@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthStore } from "@/store/auth";
 import {
-  ArrowRight, Zap, Shield, Sparkles,
+  ArrowRight, Shield, Sparkles,
   Building2, Database, Activity, Scale, Cpu,
   TrendingUp, CheckCircle
 } from "lucide-react";
