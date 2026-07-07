@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     cors_origins: list[str] = [
         "http://localhost:5173",
-        "https://msme-health-score.vercel.app",
+        "https://finscore-ten.vercel.app",
     ]
 
     @field_validator("cors_origins", mode="before")
