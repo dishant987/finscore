@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --accent: #14b8a6;
+  --accent-soft: rgba(20, 184, 166, 0.12);
+  --accent-glow: rgba(20, 184, 166, 0.25);
+  --danger: #ef4444;
+  --danger-soft: rgba(239, 68, 68, 0.12);
+  --surface: #14141f;
+  --surface-elevated: #1a1a28;
+  --surface-hover: #1e1e2e;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.1);
+  --text-primary: #f0f0f5;
+  --text-secondary: #8b8ba0;
+  --text-muted: #5c5c70;
+  --sidebar-width: 240px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+}
+
+*::-webkit-scrollbar { width: 4px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.06); border-radius: 2px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.12); }
+
+::selection { background: rgba(20, 184, 166, 0.25); color: #fff; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0f;
+  color: var(--text-primary);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Layout ─────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: #0d0d14;
+  border-right: 1px solid var(--border);
+}
+
+.main-area {
+  background: #0a0a0f;
+}
+
+/* ── Surface / Card ─────────────────────────────────── */
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.surface-elevated {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-hover);
+}
+
+/* ── Input ──────────────────────────────────────────── */
+.input-field {
+  @apply w-full bg-[var(--surface)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]
+         focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all duration-200;
+}
+
+.input-field:hover {
+  border-color: var(--border-hover);
+}
+
+.input-field.pl-10 {
+  padding-left: 2.5rem !important;
+}
+
+.input-field.pr-10 {
+  padding-right: 2.5rem !important;
+}
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 font-medium rounded-xl py-2.5 px-5 text-sm transition-all duration-200;
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 font-medium rounded-xl py-2.5 px-5 text-sm transition-all duration-200;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* ── Band badges ────────────────────────────────────── */
+.band-poor { background: rgba(239, 68, 68, 0.12); color: #f87171; }
+.band-bad { background: rgba(249, 115, 22, 0.12); color: #fb923c; }
+.band-average { background: rgba(234, 179, 8, 0.12); color: #fbbf24; }
+.band-good { background: rgba(20, 184, 166, 0.12); color: #2dd4bf; }
+.band-excellent { background: rgba(20, 184, 166, 0.18); color: #5eead4; }
+
+/* ── Animations ─────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.4s ease-out forwards; }
+.animate-slide-right { animation: slide-right 0.3s ease-out forwards; }
+
+/* ── Table ──────────────────────────────────────────── */
+.table-base {
+  @apply w-full text-sm;
+}
+
+.table-base thead th {
+  @apply text-left py-3 px-3 font-medium text-[var(--text-muted)] text-xs uppercase tracking-wider border-b border-[var(--border)];
+}
+
+.table-base tbody td {
+  @apply py-3 px-3 border-b border-[var(--border)] text-[var(--text-secondary)];
+}
+
+.table-base tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Tag / Chip ─────────────────────────────────────── */
+.chip {
+  @apply inline-flex items-center text-xs px-2.5 py-1 rounded-full font-medium;
+}
+
+/* ── Stat card ──────────────────────────────────────── */
+.stat-value {
+  @apply text-2xl font-bold text-[var(--text-primary)] tracking-tight;
+}
+
+.stat-label {
+  @apply text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider;
+}
